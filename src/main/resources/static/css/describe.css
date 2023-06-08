@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Playfair+Display:ital@1&display=swap');
+
+*{
+	font-family: 'Darumadrop One';
+	font-style: italic;
+}
+
+#myBody {
+	background-image: url("../images/describeBackground.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	z-index: -100;
+}
+
+.describe1 {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 25%;
+	font-size: 200%;
+	display: flex;
+	justify-content: center;
+	-webkit-text-stroke: 1px rgb(0, 255, 255);
+}
+
+#enemyBody {
+	background-image: url("../images/describeBackground_negate.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	z-index: -100;
+}
+
+.describe2 {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 25%;
+	font-size: 200%;
+	display: flex;
+	justify-content: center;
+	color: white;
+	-webkit-text-stroke: 1px rgb(255, 0, 0);
+}

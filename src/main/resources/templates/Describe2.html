@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/describe.css}" rel="stylesheet">
+<title></title>
+</head>
+<body id="enemyBody">
+	<p class="describe2"><span th:text="${enemy}"></span>：<span th:text="${enemyAction}"></span>&nbsp;&nbsp;<span id="motion"></span></p>
+	<script th:inline="javascript">
+		const enemyName = /*[[${enemy}]]*/"enemy";
+		const enemyAction = /*[[${enemyAction}]]*/"enemyAction";
+		var motion = document.getElementById("motion");
+		switch(enemyAction){
+			case "いっこつよいこうげき":
+				motion.innerHTML = "あいてに2ダメージ!";
+				break;
+			case "こうげき":
+				motion.innerHTML = "あいてに1ダメージ!";
+				break;
+			default:
+				motion.innerHTML = "あいてにいかくしている...!";
+		}
+	</script>
+</body>
+</html>

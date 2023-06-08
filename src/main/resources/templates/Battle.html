@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<title>ちいバト</title>
+</head>
+<body id="battle_body">
+	<div class="battle_container">
+		<div class="screen left">
+			<h1><span id="our" th:text="${select}"></span></h1>
+			<img class="myhpbar" th:src="@{/images/{myhpbar}.png (myhpbar=${myhpbar})}" th:alt="${myhpbar}">
+			<img class="myitem" th:src="@{/images/{myitem}.png (myitem=${myitem})}" th:alt="${myitem}">
+			<form id="act" method="post">
+				<label class="commandLabel">&nbsp;&nbsp;&nbsp;コマンド</label>
+				<label class="actLabel">&nbsp;こうげき
+				<button name="action" id="action" th:value="こうげき" onclick="clickBtn2(this.value)"></button>
+				</label>
+				<label class="actLabel">&nbsp;まもる
+				<button name="action" id="action" th:value="まもる" onclick="clickBtn2(this.value)"></button>
+				</label>
+				<label class="actLabel">&nbsp;ようすをみる
+				<button name="action" id="action" th:value="ようすをみる" onclick="clickBtn2(this.value)"></button>
+				</label>
+			</form>
+			<iframe class="describe-frame" src="/chiikawabattle/describe1"></iframe>
+		</div>
+		<div class="screen right">
+			<h1><span id="enemy" th:text="${enemy}"></span></h1>
+			<img class="hpbar" th:src="@{/images/{hpbar}.png (hpbar=${hpbar})}" th:alt="${hpbar}">
+			<img class="item" th:src="@{/images/{item}.png (item=${item})}" th:alt="${item}">
+			<iframe class="describe-frame" src="/chiikawabattle/describe2"></iframe>
+		</div>
+	</div>
+	<script th:inline="javascript"><!-- ウィンドウ開始時 -->
+		console.log("Battle.htmlのスクリプトを開始");
+		const selectedValue1 = /*[[${select}]]*/"select";
+		var our = document.getElementById("our");
+		our.style.webkitTextStroke = "1px rgb(0, 0, 0)";
+		switch(selectedValue1){
+			case "ちいかわ":
+				document.body.style.backgroundImage = "url(../images/battleBackgroundC.jpg)";
+				our.style.color = "rgb(255, 85, 251)";
+				break;
+			case "ハチワレ":
+				document.body.style.backgroundImage = "url(../images/battleBackgroundH.jpg)";
+				our.style.color = "rgb(0, 255, 255)";
+				break;
+			case "うさぎ":
+				document.body.style.backgroundImage = "url(../images/battleBackgroundU.jpg)";
+				our.style.color = "rgb(252, 210, 84)";
+				break;
+			case "くりまんじゅう":
+				document.body.style.backgroundImage = "url(../images/battleBackgroundK.jpg)";
+				our.style.color = "rgb(255, 136, 17)";
+				break;
+		}
+		our.innerHTML = selectedValue1;
+		console.log(selectedValue1 + "のテキストスタイルを変更しました");
+		
+		const selectedValue2 = /*[[${enemy}]]*/"enemy";
+		var enemy = document.getElementById("enemy");
+		enemy.style.webkitTextStroke = "1px rgb(192, 192, 192)";
+		enemy.style.color = "rgb(0, 0, 0)";
+		enemy.innerHTML = selectedValue2;
+		console.log("敵を設定しました");
+	</script>
+</body>
+</html>

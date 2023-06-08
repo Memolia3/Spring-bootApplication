@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<title>ちいバト</title>
+</head>
+<body>
+	<header class="header">
+		<h1 id="default-font">ちいバト</h1>
+	</header>
+	<div class="container">
+		<ul>
+			<li><a href="/chiikawabattle/battle">とうばつをはじめる</a></li>
+			<li><a href="/chiikawabattle/ready">キャラをえらびなおす</a></li>
+		</ul>
+	</div>
+	<p id="select"><span id="span" th:text="${select}"></span>をせんたくちゅう</p>
+	<script th:inline="javascript"><!-- ウィンドウ開始時 -->
+		console.log("Home2.htmlのスクリプトを開始");
+		const selectedValue = /*[[${select}]]*/"select";
+		var span = document.getElementById("span");
+		span.style.webkitTextStroke = "2px rgb(0, 0, 0)";
+		switch(selectedValue){
+			case "ちいかわ":
+				span.style.color = "rgb(255, 85, 251)";
+				break;
+			case "ハチワレ":
+				span.style.color = "rgb(0, 255, 255)";
+				break;
+			case "うさぎ":
+				span.style.color = "rgb(252, 210, 84)";
+				break;
+			case "くりまんじゅう":
+				span.style.color = "rgb(255, 136, 17)";
+				break;
+			}
+		span.innerHTML = selectedValue;
+		console.log(selectedValue + "のテキストスタイルを変更しました");
+	</script>
+</body>
+</html>

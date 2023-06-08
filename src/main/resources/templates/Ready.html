@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<title>ちいバト</title>
+</head>
+<body>
+	<header class="header">
+		<h1 id="default-font">きゃらせんたく</h1>
+	</header>
+	<div class="selectContent">
+		<div class="character">
+			<img th:src="@{/images/chiikawaSelecter.png}" alt="chiikawa">
+			<p>・ちいかわ<br>なんかちいさくてかわいいやつ</p>
+			
+			<img th:src="@{/images/hachiwareSelecter.png}" alt="hachiware">
+			<p>・ハチワレ<br>ときどきけだまをはく</p>
+			
+			<img th:src="@{/images/usagiSelecter.png}" alt="usagi">
+			<p>・うさぎ<br>なにをかんがえているのかわからない</p>
+			
+			<img th:src="@{/images/kurimanjyuSelecter.png}" alt="kurimanjyu">
+			<p>・くりまんじゅう<br>ぬしのおし。<br>さいきょうせってい</p>
+		</div>
+		
+		<p id="default-font">きゃらをえらんでね</p>
+		
+		<form class="selecter" th:action="@{/chiikawabattle/home2}" method="post">
+			<label class="label1">ちいかわ
+			<button name="selecter" id="selecter" value="ちいかわ"  onclick="clickBtn1(this.value)" th:value="ちいかわ"></button>
+			</label>
+			
+			<label class="label2">ハチワレ
+			<button name="selecter" id="selecter" value="ハチワレ" onclick="clickBtn1(this.value)" th:value="ハチワレ"></button>
+			</label>
+			
+			<label class="label3">うさぎ
+			<button name="selecter" id="selecter" value="うさぎ" onclick="clickBtn1(this.value)" th:value="うさぎ"></button>
+			</label>
+			
+			<label class="label4">くりまんじゅう
+			<button name="selecter" id="selecter" value="くりまんじゅう" onclick="clickBtn1(this.value)" th:value="くりまんじゅう"></button>
+			</label>
+		</form>
+	</div>
+	<footer class="footer">
+		<span class="back">
+			<a href="/chiikawabattle/home" class="link">ホームにもどる</a>
+		</span>
+	</footer>
+</body>
+</html>

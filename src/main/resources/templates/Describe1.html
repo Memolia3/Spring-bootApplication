@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/describe.css}" rel="stylesheet">
+<title></title>
+</head>
+<body id="myBody">
+	<p class="describe1"><span th:text="${select}"></span>：<span th:text="${action}"></span>&nbsp;&nbsp;<span id="motion"></span></p>
+	<script th:inline="javascript">
+		const select = /*[[${select}]]*/"select";
+		const action = /*[[${action}]]*/"action";
+		var motion = document.getElementById("motion");
+		switch(action){
+			case "こうげき":
+				motion.innerHTML = "あいてに1ダメージ!";
+				break;
+			case "まもる":
+				motion.innerHTML = "じぶんをまもった!&nbsp;HPが1かいふく!&nbsp;";
+				break;
+			default:
+				motion.innerHTML = "あいてのようすをみている...";
+		}
+	</script>
+</body>
+</html>

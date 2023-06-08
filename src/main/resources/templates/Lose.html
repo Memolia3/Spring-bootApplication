@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<title>ちいバト</title>
+</head>
+<body>
+	<p class="lose">まけちゃった...</p>
+	<script th:inline="javascript">
+		document.body.style.backgroundImage = "url(../images/loseBackground.png)";
+	</script>
+</body>
+</html>
